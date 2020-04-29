@@ -1,6 +1,8 @@
 # Sorting Visualizer
 A webpage to visualize the various sorting algorithms made using [p5.js](https://p5js.org/) library.
 
+> The website is publised at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
+
 Bubble Sort
 ----
 - Bubble sort is one the simplest sorting algorithms that goes through the whole array and swaps adjacent elements if they're in the wrong order.
