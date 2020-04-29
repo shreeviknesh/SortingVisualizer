@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/style.css">
 
-    <!-- Scripts -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- p5.js Library -->
     <script src="vendor/p5/p5.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script src="src/js/bubbleSort.js"></script>
     <script src="src/js/optimizedBubbleSort.js"></script>
     <script src="src/js/selectionSort.js"></script>
@@ -35,6 +36,7 @@
                 <option value="bestCase">Sorted</option>
             </select>
 
+            <br>
             <label for="scaleRange">Scale Range</label>
             <input type="range" class="custom-range" min="15" max="80" value="30" step="5" id="scaleRange" oninput="initialize();">
 

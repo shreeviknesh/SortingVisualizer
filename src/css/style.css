@@ -34,3 +34,9 @@ select {
     min-width: 5em;
     display: inline !important;
 }
+
+@media screen and (max-width: 600px) {
+    canvas {
+        top: 20vh;
+    }
+}
