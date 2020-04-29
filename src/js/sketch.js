@@ -1,8 +1,8 @@
 const widthRatio = 0.8;
 const heightRatio = 0.8;
 
-const scale = 100;
-let fps = 1;
+const scale = 35;
+let fps = 35;
 
 const bodyColor         = "#004346";
 const backgroundColor   = "#004346";
