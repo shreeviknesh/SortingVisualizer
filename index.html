@@ -7,9 +7,11 @@
     
     <!-- CSS -->
     <link rel="shortcut icon" type="image/x-icon" href="src/favicon.ico"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/style.css">
 
     <!-- Scripts -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/p5/p5.min.js"></script>
     <script src="src/js/bubbleSort.js"></script>
     <script src="src/js/optimizedBubbleSort.js"></script>
@@ -18,20 +20,34 @@
 </head>
 <body onload="initialize();">
     <div>
-        <h1 id="title">Sorting Visualizer</h1>
-        <div id="userControls">
+        <div id="title">Sorting Visualizer</div>
+        <hr style="padding: 0; margin: 0; margin-top: 0.25em; margin-bottom: 0.5em;">
+        <div id="userControls" class="form-horizontal">
             <select name="sortingFunction" id="sortingFunction" onchange="getSortingFunction();">
                 <option value="bubble">Bubble Sort</option>
                 <option value="optiBubble">Optimized Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
             </select>
+
             <select name="arrayInit" id="arrayInit" onchange="getArrayInitialization();">
-                <option value="avgCase">Average Case (Random)</option>
-                <option value="worstCase">Worst Case (Reverse-sorted)</option>
-                <option value="bestCase">Best Case (Sorted)</option>
+                <option value="avgCase">Random</option>
+                <option value="worstCase">Reverse-sorted</option>
+                <option value="bestCase">Sorted</option>
             </select>
-            <button id="startSorting" onclick="loop();">Start</button>
-            <button id="pauseSorting" onclick="noLoop();">Pause</button>
+
+            <label for="scaleRange">Scale Range</label>
+            <input type="range" class="custom-range" min="15" max="80" value="30" step="5" id="scaleRange" oninput="initialize();">
+
+            <label for="fpsRange">FPS Range</label>
+            <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="fpsRange" oninput="getFPS();">
+            
+            <br>
+            <button id="startSorting" type="button" class="btn btn-success btn-sm" onclick="loop();">Start</button>
+            <button id="pauseSorting" type="button" class="btn btn-warning btn-sm" onclick="noLoop();">Stop</button>
+            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="(() => {
+                noLoop();
+                setTimeout(initialize, 10);
+                })();">Reset</button>
         </div>
     </div>
 </body>

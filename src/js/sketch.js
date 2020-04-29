@@ -1,8 +1,12 @@
-const widthRatio = 0.8;
-const heightRatio = 0.8;
+const widthRatio = 0.9;
+const heightRatio = 0.75;
 
-const scale = 35;
-let fps = 35;
+let scale = 20;
+let fps = 60;
+
+const getFPS = () => {
+    fps = int(document.getElementById("fpsRange").value);
+}
 
 const bodyColor         = "#004346";
 const backgroundColor   = "#004346";
@@ -19,8 +23,9 @@ let arrayInit = "avgCase";
 
 function initialize() {
     noLoop();
+    scale = document.getElementById("scaleRange").value;
     array.length = activePositions.length = 0;
-    n = width / scale;
+    n = Math.floor(width / scale);
 
     if(arrayInit == "avgCase") {
         for(let i = 0; i < n; i++) {
@@ -104,6 +109,7 @@ function visualizeArray() {
         }
         
         strokeWeight(1);
+        // noStroke();
         rect(iter * scale, height, 1 * scale, -array[iter]);
     }
 }

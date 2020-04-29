@@ -3,18 +3,34 @@ canvas {
     margin: auto;
     display: block;
     position: absolute;
-    top: 10vh;
+    top: 16vh;
     bottom: 0;
     left: 0;
     right: 0;
 }
 
+label, #title {
+    color: #ccc;
+}
+
+select {
+    width: 7.5vw;
+    min-width: 10em;
+}
+
 #title {
     text-align: center;
-    color: #ccc;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 #userControls {
     margin: auto;
     text-align: center;
+}
+
+.custom-range {
+    width: 5vw !important;
+    min-width: 5em;
+    display: inline !important;
 }
