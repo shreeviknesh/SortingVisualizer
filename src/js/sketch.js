@@ -15,18 +15,30 @@ let n;
 let i, j, swaps;
 let pos = 0;
 let sortingFunction = bubbleSort;
+let arrayInit = "avgCase";
 
 function initialize() {
     noLoop();
     array.length = activePositions.length = 0;
-    
     n = width / scale;
-    // Populate the array using another function of either best case values, worst case values, random values
-    for(let i = 0; i < n; i++) {
-        array.push(random(height - 5) + 5);
-    }
-    i = j = swaps = pos = 0;
 
+    if(arrayInit == "avgCase") {
+        for(let i = 0; i < n; i++) {
+            array.push(random(height - 5) + 5);
+        }
+    } 
+    else if(arrayInit == "bestCase") {
+        for(let i = 0; i < n; i++) {
+            array.push(map(i, 0, n, 10, height - 10));
+        }
+    }
+    else {
+        for(let i = 0; i < n; i++) {
+            array.push(map(i, 0, n, height - 10, 10));
+        }
+    }
+    
+    i = j = swaps = pos = 0;
     visualizeArray();
 }
 
@@ -54,11 +66,11 @@ function windowResized() {
 }
 
 function getSortingFunction() {
-    let val =document.getElementById('sortingFunction').value;
+    let val = document.getElementById('sortingFunction').value;
     if(val == "bubble") {
         sortingFunction = bubbleSort;
     }
-    else if(val == "opti_bubble") {
+    else if(val == "optiBubble") {
         sortingFunction = optimizedBubbleSort;
     }
     else if(val == "selection") {
@@ -66,6 +78,13 @@ function getSortingFunction() {
     }
     noLoop();
     setTimeout(initialize, 100);
+}
+
+function getArrayInitialization() {
+    arrayInit = document.getElementById('arrayInit').value;
+    noLoop();
+    setTimeout(initialize, 100);
+
 }
 
 function draw() {
