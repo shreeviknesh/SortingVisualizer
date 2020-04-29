@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Visualizer</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    
+    <!-- CSS -->
+    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.ico"/>
+    <link rel="stylesheet" href="src/css/style.css">
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    <script src="js/bubbleSort.js"></script>
-    <script src="js/sketch.js"></script>
-    <style>
-        body {
-            background: #F5DDDD;
-        }
-
-        canvas {
-            padding: 0;
-            margin: auto;
-            display: block;
-            position: absolute;
-            top: 10vh;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-    </style>
+    <script src="vendor/p5/p5.min.js"></script>
+    <script src="src/js/bubbleSort.js"></script>
+    <script src="src/js/optimizedBubbleSort.js"></script>
+    <script src="src/js/selectionSort.js"></script>
+    <script src="src/js/sketch.js"></script>
 </head>
-<body>
-    <h1 style="text-align: center; color: #aaaaaa;">Sorting Visualizer</h1>
-    
+<body onload="initialize();">
+    <div>
+        <h1 id="title">Sorting Visualizer</h1>
+        <div id="userControls">
+            <select name="sortingFunction" id="sortingFunction" onchange="getSortingFunction();">
+                <option value="bubble">Bubble Sort</option>
+                <option value="opti_bubble">Optimized Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+            </select>
+            <button id="startSorting" onclick="loop();">Start</button>
+            <button id="pauseSorting" onclick="noLoop();">Pause</button>
+        </div>
+    </div>
 </body>
 </html>
