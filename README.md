@@ -19,3 +19,10 @@ Selection Sort
 - During each iteration, it finds the minimum element in the unsorted part and puts it to the sorted part.
 - The worst-case time complexity is O(n<sup>2</sup>).
 - The advantage of selection sort over bubble sort is that it never makes more than O(n) swaps. This can come in handy when memory write is costly.
+
+TODO
+----
+1. Insertion Sort
+3. Quick Sort
+2. Merge Sort
+4. Heap Sort
