@@ -22,8 +22,13 @@
         <div id="userControls">
             <select name="sortingFunction" id="sortingFunction" onchange="getSortingFunction();">
                 <option value="bubble">Bubble Sort</option>
-                <option value="opti_bubble">Optimized Bubble Sort</option>
+                <option value="optiBubble">Optimized Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
+            </select>
+            <select name="arrayInit" id="arrayInit" onchange="getArrayInitialization();">
+                <option value="avgCase">Average Case (Random)</option>
+                <option value="worstCase">Worst Case (Reverse-sorted)</option>
+                <option value="bestCase">Best Case (Sorted)</option>
             </select>
             <button id="startSorting" onclick="loop();">Start</button>
             <button id="pauseSorting" onclick="noLoop();">Pause</button>
