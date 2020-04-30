@@ -30,6 +30,10 @@ select {
     text-align: center;
 }
 
+.mobile-line-break {
+    display: none;
+}
+
 .custom-range {
     width: 5vw !important;
     min-width: 5em;
@@ -37,6 +41,10 @@ select {
 
 @media screen and (max-width: 600px) {
     canvas {
-        top: 20vh;
+        top: 25vh;
+    }
+
+    .mobile-line-break {
+        display: inline;
     }
 }

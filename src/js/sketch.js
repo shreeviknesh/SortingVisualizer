@@ -1,5 +1,5 @@
 const widthRatio = 0.9;
-const heightRatio = 0.75;
+const heightRatio = 0.67;
 
 let scale = 15;
 let fps = 60;
