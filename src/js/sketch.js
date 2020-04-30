@@ -1,12 +1,8 @@
 const widthRatio = 0.9;
 const heightRatio = 0.75;
 
-let scale = 20;
+let scale = 15;
 let fps = 60;
-
-const getFPS = () => {
-    fps = int(document.getElementById("fpsRange").value);
-}
 
 const bodyColor         = "#004346";
 const backgroundColor   = "#004346";
@@ -21,9 +17,23 @@ let pos = 0;
 let sortingFunction = bubbleSort;
 let arrayInit = "avgCase";
 
+function setup() {
+    createCanvas(getWidth(), window.innerHeight * heightRatio);
+    document.body.style.background = bodyColor;
+    noLoop();
+}
+
+function draw() {
+    frameRate(fps);
+    background(backgroundColor);
+    sortingFunction();
+}
+
 function initialize() {
     noLoop();
-    scale = document.getElementById("scaleRange").value;
+
+    // Mapping from array-size to scale (inversely-proportional)
+    scale = map(int(document.getElementById("arraySizeRange").value), 0, 100, 80, 5);
     array.length = activePositions.length = 0;
     n = Math.floor(width / scale);
 
@@ -58,12 +68,6 @@ let getWidth = () => {
     return (window.innerWidth * widthRatio) - ((window.innerWidth * widthRatio) % scale);
 }
 
-function setup() {
-    createCanvas(getWidth(), window.innerHeight * heightRatio);
-    document.body.style.background = bodyColor;
-    noLoop();
-}
-
 function windowResized() {
     noLoop();
     resizeCanvas(getWidth(), window.innerHeight * heightRatio);
@@ -92,10 +96,8 @@ function getArrayInitialization() {
 
 }
 
-function draw() {
-    frameRate(fps);
-    background(backgroundColor);
-    sortingFunction();
+const getFPS = () => {
+    fps = int(document.getElementById("speedRange").value);
 }
 
 function visualizeArray() {
