@@ -1,4 +1,4 @@
-const widthRatio = 0.9;
+const widthRatio = 0.90;
 const heightRatio = 0.67;
 
 let scale = 15;
