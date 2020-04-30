@@ -16,9 +16,11 @@ let i, j, swaps;
 let pos = 0;
 let sortingFunction = bubbleSort;
 let arrayInit = "avgCase";
+let canvas;
 
 function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
+    canvas = document.querySelector('canvas');
     document.body.style.background = bodyColor;
     noLoop();
 }
@@ -71,6 +73,7 @@ let getWidth = () => {
 function windowResized() {
     noLoop();
     resizeCanvas(getWidth(), window.innerHeight * heightRatio);
+    canvas.style.margin = "auto";
     setTimeout(initialize, 1);
 }
 
