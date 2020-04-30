@@ -16,6 +16,7 @@ function optimizedBubbleSort() {
 
     if(i >= n) {
         j = undefined;
+        sorted = true;
         noLoop();
     }
     

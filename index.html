@@ -2,35 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="A Visualizer for various sorting functions"/>
     <title>Sorting Visualizer</title>
     
     <!-- CSS -->
     <link rel="shortcut icon" type="image/x-icon" href="src/favicon.ico"/>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="src/css/style.css"/>
 
     <!-- p5.js Library -->
     <script src="vendor/p5/p5.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <script src="src/js/bubbleSort.js"></script>
-    <script src="src/js/optimizedBubbleSort.js"></script>
-    <script src="src/js/selectionSort.js"></script>
-    <script src="src/js/sketch.js"></script>
 </head>
-<body onload="initialize();">
+<body style="background:#004346;">
     <div>
         <div id="title">Sorting Visualizer</div>
         <hr style="padding: 0; margin: 0; margin-top: 0.25em; margin-bottom: 0.5em;">
         <div id="userControls" class="form-horizontal">
-            <select name="sortingFunction" id="sortingFunction" onchange="getSortingFunction();">
+            <label for="sortingFunction">Sorting Function</label>
+            <select name="sortingFunction" id="sortingFunction" onchange="setup();">
                 <option value="bubble">Bubble Sort</option>
                 <option value="optiBubble">Optimized Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
             </select>
-
-            <select name="arrayInit" id="arrayInit" onchange="getArrayInitialization();">
+            <label for="arrayInit">Array Initialization</label>
+            <select name="arrayInit" id="arrayInit" onchange="setup();">
                 <option value="avgCase">Random</option>
                 <option value="worstCase">Reverse-sorted</option>
                 <option value="bestCase">Sorted</option>
@@ -38,7 +34,7 @@
 
             <br>
             <label for="arraySizeRange">Array Size</label>
-            <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="initialize();">
+            <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="setup();">
 
             <label for="speedRange">Speed</label>
             <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="speedRange" oninput="getFPS();">
@@ -46,11 +42,18 @@
             <br>
             <button id="startSorting" type="button" class="btn btn-success btn-sm" onclick="loop();">Start</button>
             <button id="pauseSorting" type="button" class="btn btn-warning btn-sm" onclick="noLoop();">Pause</button>
-            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="(() => {
+            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="(()=>{
                 noLoop();
-                setTimeout(initialize, 10);
-                })();">Reset</button>
+                setTimeout(setup, 15);
+            })();">Reset</button>
         </div>
     </div>
 </body>
+
+<!-- Custom Scripts -->
+<script src="src/js/bubbleSort.js"></script>
+<script src="src/js/optimizedBubbleSort.js"></script>
+<script src="src/js/selectionSort.js"></script>
+<script src="src/js/sketch.js"></script>
+
 </html>

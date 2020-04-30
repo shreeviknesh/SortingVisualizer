@@ -16,6 +16,7 @@ label, #title {
 select {
     width: 7.5vw;
     min-width: 10em;
+    margin-bottom: 0.5em;
 }
 
 #title {
@@ -32,7 +33,6 @@ select {
 .custom-range {
     width: 5vw !important;
     min-width: 5em;
-    display: inline !important;
 }
 
 @media screen and (max-width: 600px) {

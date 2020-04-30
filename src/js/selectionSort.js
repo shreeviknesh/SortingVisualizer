@@ -14,6 +14,7 @@ function selectionSort() {
 
     if(i >= n - 1) {
         pos = undefined;
+        sorted = true;
         noLoop();
     }
         

@@ -11,6 +11,7 @@ function bubbleSort() {
 
     if(i >= n) {
         j = undefined;
+        sorted = true;
         noLoop();
     }
 
