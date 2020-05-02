@@ -1,3 +1,4 @@
+let canvas;
 const widthRatio = 0.90;
 const heightRatio = 0.67;
 
@@ -9,17 +10,18 @@ const activeColor       = "#FF3CC7";
 const valueColor        = "#39CCCC";
 const sortedColor       = "#01FF70";
 
-let array = [];
+let valueArray = [];
 let activePositions = [];
 let sortedPositions = [];
-let n;
-let i, j, swaps;
-let pos = 0;
-let sortingFunction;
-let arrayInit = "avgCase";
-let canvas;
-let sorted = false;
 
+let sortingFunction;
+
+let n;
+let i, j, pos;
+let swaps, insertionSortVal;
+
+let sorted = false;
+let looping = false;
 
 function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
@@ -30,70 +32,79 @@ function setup() {
 
 function draw() {
     frameRate(fps);
-    if(!sorted) {
+    if(!sorted && looping) {
         background(backgroundColor);
         sortingFunction();
     }
 }
 
 let initialize = async () => {
-    val = document.getElementById('sortingFunction').value;
-    arrayInit = document.getElementById('arrayInit').value;
     getFPS();
     sorted = false;
+    looping = false;
 
     // Mapping from array-size to scale (inversely-proportional)
     scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
 
     // Initializing the array
-    setSortingFunction().then(initializeArray).then(visualizeArray);
+    await initializeArray();
+    await setSortingFunction();
+    await visualizeArray();
 }
 
 let setSortingFunction = async () => {
-    if(val == "bubble") {
+    let sortingChoiceVal = document.getElementById('sortingFunction').value;
+    if(sortingChoiceVal == "bubble") {
         sortingFunction = bubbleSort;
+        i = j = 0;
     }
-    else if(val == "optiBubble") {
-        sortingFunction = optimizedBubbleSort;
+    else if(sortingChoiceVal == "optiBubble") {
+        sortingFunction = optimizedBubbleSort;    
+        i = j = swaps = 0;
     }
-    else if(val == "selection") {
+    else if(sortingChoiceVal == "selection") {
         sortingFunction = selectionSort;
+        i = j = pos = 0;
+    } 
+    else if(sortingChoiceVal == "insertion") {
+        sortingFunction = insertionSort;
+        i = 1;
+        j = 0;
+        insertionSortVal = valueArray[1];
     }
 }
 
 let initializeArray = async () => {
+    let arrayInit = document.getElementById('arrayInit').value;
     // Reseting the value array and active array
-    array.length = activePositions.length = sortedPositions.length = 0;
+    valueArray.length = activePositions.length = sortedPositions.length = 0;
     
     // Getting the number of elements
     n = Math.floor(width / scale);
 
     // Populating the array based on user input
     if(arrayInit == "avgCase") {
-        for(let i = 0; i < n; i++) {
-            array.push(random(height - 10) + 10);
+        for(let iteration = 0; iteration < n; iteration++) {
+            valueArray.push(Math.floor(random(height - 10)) + 10);
         }
     } 
     else if(arrayInit == "bestCase") {
-        for(let i = 0; i < n; i++) {
-            array.push(map(i, 0, n, 10, height - 10));
+        for(let iteration = 0; iteration < n; iteration++) {
+            valueArray.push(Math.floor(map(iteration, 0, n, 10, height - 10)));
         }
     }
     else {
-        for(let i = 0; i < n; i++) {
-            array.push(map(i, 0, n, height - 10, 10));
+        for(let iteration = 0; iteration < n; iteration++) {
+            valueArray.push(Math.floor(map(iteration, 0, n, height - 10, 10)));
         }
     }
-    
-    // Setting all values to 0
-    i = j = swaps = pos = 0;
 }
 
 let swap = async (a, b) => {
     swaps++;
-    let temp = array[a];
-    array[a] = array[b];
-    array[b] = temp;
+    let temp = valueArray[a];
+    valueArray[a] = valueArray[b];
+    valueArray[b] = temp;
 }
 
 let getWidth = () => {
@@ -128,12 +139,29 @@ const visualizeArray = async () => {
 
         strokeWeight(1);
         // noStroke();
-        rect(iter * scale, height, 1 * scale, -array[iter]);
+        rect(iter * scale, height, 1 * scale, - valueArray[iter]);
     }
 }
 
 const finishedSorting = () => {
     sorted = true;
+    looping = false;
     visualizeArray();
+    noLoop();
+}
+
+const startButton = () => {
+    looping = true;
+    loop();
+}
+
+const resetButton = () => {
+    looping = false;
+    noLoop();
+    setup();
+}
+
+const pauseButton = () => {
+    looping = false;
     noLoop();
 }

@@ -24,6 +24,7 @@
                 <option value="bubble">Bubble Sort</option>
                 <option value="optiBubble">Optimized Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
+                <option value="insertion">Insertion Sort</option>
             </select>
             <br class="mobile-line-break">
             <label for="arrayInit">Array Initialization</label>
@@ -41,12 +42,9 @@
             <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="speedRange" oninput="getFPS();">
             
             <br>
-            <button id="startSorting" type="button" class="btn btn-success btn-sm" onclick="loop();">Start</button>
-            <button id="pauseSorting" type="button" class="btn btn-warning btn-sm" onclick="noLoop();">Pause</button>
-            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="(()=>{
-                noLoop();
-                setTimeout(setup, 15);
-            })();">Reset</button>
+            <button id="startSorting" type="button" class="btn btn-success btn-sm" onclick="startButton();">Start</button>
+            <button id="pauseSorting" type="button" class="btn btn-warning btn-sm" onclick="pauseButton();">Pause</button>
+            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="resetButton();">Reset</button>
         </div>
     </div>
 </body>
@@ -55,6 +53,7 @@
 <script src="src/js/bubbleSort.js"></script>
 <script src="src/js/optimizedBubbleSort.js"></script>
 <script src="src/js/selectionSort.js"></script>
+<script src="src/js/insertionSort.js"></script>
 <script src="src/js/sketch.js"></script>
 
 </html>

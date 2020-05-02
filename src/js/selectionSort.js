@@ -1,5 +1,9 @@
 function selectionSort() {
-    if(array[j] < array[pos]) {
+    if(!looping || sorted) {
+        return;
+    }
+    
+    if(valueArray[j] < valueArray[pos]) {
         pos = j;
     }
 

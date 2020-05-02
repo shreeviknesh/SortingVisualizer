@@ -1,5 +1,9 @@
 function optimizedBubbleSort() {
-    if(array[j] > array[j+1]) {
+    if(!looping || sorted) {
+        return;
+    }
+    
+    if(valueArray[j] > valueArray[j+1]) {
         swap(j, j+1);
     }
 
