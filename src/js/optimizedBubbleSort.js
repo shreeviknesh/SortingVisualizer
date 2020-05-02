@@ -6,18 +6,18 @@ function optimizedBubbleSort() {
     j++;
     if(j >= n - i - 1) {
         j = 0;
+        sortedPositions.push(n-i-1);
         i++;
         if(swaps == 0) {
-            j = undefined;
-            noLoop();
+            finishedSorting();
+            return;
         }
         swaps = 0;
     }
 
     if(i >= n) {
-        j = undefined;
-        sorted = true;
-        noLoop();
+        finishedSorting();
+        return;
     }
     
     activePositions = [j];

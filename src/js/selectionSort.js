@@ -1,5 +1,5 @@
 function selectionSort() {
-        if(array[j] < array[pos]) {
+    if(array[j] < array[pos]) {
         pos = j;
     }
 
@@ -7,15 +7,15 @@ function selectionSort() {
 
     if(j >= n) {
         swap(i, pos);
+        sortedPositions.push(i);
         i++;
         pos = i;
         j = i;
     }
 
     if(i >= n - 1) {
-        pos = undefined;
-        sorted = true;
-        noLoop();
+        finishedSorting();
+        return;
     }
         
     activePositions = [pos];

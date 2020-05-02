@@ -2,14 +2,16 @@ const widthRatio = 0.90;
 const heightRatio = 0.67;
 
 let scale = 15;
-let fps = 60;
+let fps = 30;
 
 const backgroundColor   = "#004346";
 const activeColor       = "#FF3CC7";
-const valueColor        = "#00F6ED";
+const valueColor        = "#39CCCC";
+const sortedColor       = "#01FF70";
 
 let array = [];
 let activePositions = [];
+let sortedPositions = [];
 let n;
 let i, j, swaps;
 let pos = 0;
@@ -18,11 +20,12 @@ let arrayInit = "avgCase";
 let canvas;
 let sorted = false;
 
+
 function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
     canvas = document.querySelector('canvas');
-    noLoop();
     initialize();
+    noLoop();
 }
 
 function draw() {
@@ -36,10 +39,11 @@ function draw() {
 let initialize = async () => {
     val = document.getElementById('sortingFunction').value;
     arrayInit = document.getElementById('arrayInit').value;
+    getFPS();
     sorted = false;
 
     // Mapping from array-size to scale (inversely-proportional)
-    scale = map(int(document.getElementById("arraySizeRange").value), 0, 100, 80, 5);
+    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
 
     // Initializing the array
     setSortingFunction().then(initializeArray).then(visualizeArray);
@@ -59,7 +63,7 @@ let setSortingFunction = async () => {
 
 let initializeArray = async () => {
     // Reseting the value array and active array
-    array.length = activePositions.length = 0;
+    array.length = activePositions.length = sortedPositions.length = 0;
     
     // Getting the number of elements
     n = Math.floor(width / scale);
@@ -109,15 +113,27 @@ const getFPS = () => {
 const visualizeArray = async () => {
     background(backgroundColor);
     for(let iter = 0; iter < n; iter++) {
-        if(activePositions.includes(iter)) {
+        if(sorted) {
+            fill(sortedColor);
+        }
+        else if(activePositions.includes(iter)) {
             fill(activeColor);
         } 
+        else if(sortedPositions.includes(iter)) {
+            fill(sortedColor);
+        }
         else {
             fill(valueColor);
         }
-        
+
         strokeWeight(1);
         // noStroke();
         rect(iter * scale, height, 1 * scale, -array[iter]);
     }
+}
+
+const finishedSorting = () => {
+    sorted = true;
+    visualizeArray();
+    noLoop();
 }
