@@ -20,9 +20,16 @@ Selection Sort
 - The worst-case time complexity is O(n<sup>2</sup>).
 - The advantage of selection sort over bubble sort is that it never makes more than O(n) swaps. This can come in handy when memory write is costly.
 
+Insertion Sort
+----
+- Insertion sort is a simple sorting algorithm that works the way we sort playing cards.
+- For each element from i from 1..n, it inserts it in the sorted array j from 0..i-1
+- The worst-case and average-case time complexity is O(n<sup>2</sup>).
+- The best-case time complexity is O(n) when the elements are in sorted order.
+
 TODO
 ----
-1. Insertion Sort
+~1. Insertion Sort~
 3. Quick Sort
 2. Merge Sort
 4. Heap Sort
