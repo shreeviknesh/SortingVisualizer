@@ -3,14 +3,14 @@ function insertionSort() {
         return;
     }
 
-    if(j >= 0 && valueArray[j] > insertionSortVal) {
+    if(j >= 0 && valueArray[j] > value) {
         valueArray[j + 1] = valueArray[j];
         j--;
     } 
-    if(j < 0 || valueArray[j] <= insertionSortVal) {
-        valueArray[j + 1] = insertionSortVal;
+    if(j < 0 || valueArray[j] <= value) {
+        valueArray[j + 1] = value;
         i++;
-        insertionSortVal = valueArray[i];
+        value = valueArray[i];
         j = i - 1;
     }
 
