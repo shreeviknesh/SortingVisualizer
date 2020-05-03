@@ -26,10 +26,13 @@ Insertion Sort
 - For each element from i from 1..n, it inserts it in the sorted array j from 0..i-1
 - The worst-case and average-case time complexity is O(n<sup>2</sup>).
 - The best-case time complexity is O(n) when the elements are in sorted order.
+- It is used when the number of elements in the array is small, or when the input array is almost sorted.
+- Optimization:
+  - The algorithm can be optimized by using binary search to reduce the number of comparisons.
 
 TODO
 ----
-~1. Insertion Sort~
-3. Quick Sort
-2. Merge Sort
-4. Heap Sort
+- [x] Insertion Sort
+- [ ] Quick Sort
+- [ ] Merge Sort
+- [ ] Heap Sort
