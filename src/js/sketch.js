@@ -18,15 +18,27 @@ let sortingFunction;
 
 let n;
 let i, j, pos;
-let swaps, insertionSortVal;
+let swaps, value;
 
 let sorted = false;
 let looping = false;
 
-function setup() {
+async function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
     canvas = document.querySelector('canvas');
-    initialize();
+    
+    fps = int(document.getElementById("speedRange").value);
+    sorted = false;
+    looping = false;
+
+    // Mapping from array-size to scale (inversely-proportional)
+    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
+
+    // Initializing the array
+    await initializeArray();
+    await setSortingFunction();
+    await visualizeArray();
+    
     noLoop();
 }
 
@@ -38,92 +50,6 @@ function draw() {
     }
 }
 
-let initialize = async () => {
-    getFPS();
-    sorted = false;
-    looping = false;
-
-    // Mapping from array-size to scale (inversely-proportional)
-    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
-
-    // Initializing the array
-    await initializeArray();
-    await setSortingFunction();
-    await visualizeArray();
-}
-
-let setSortingFunction = async () => {
-    let sortingChoiceVal = document.getElementById('sortingFunction').value;
-    if(sortingChoiceVal == "bubble") {
-        sortingFunction = bubbleSort;
-        i = j = 0;
-    }
-    else if(sortingChoiceVal == "optiBubble") {
-        sortingFunction = optimizedBubbleSort;    
-        i = j = swaps = 0;
-    }
-    else if(sortingChoiceVal == "selection") {
-        sortingFunction = selectionSort;
-        i = j = pos = 0;
-    } 
-    else if(sortingChoiceVal == "insertion") {
-        sortingFunction = insertionSort;
-        i = 1;
-        j = 0;
-        insertionSortVal = valueArray[1];
-    }
-}
-
-let initializeArray = async () => {
-    let arrayInit = document.getElementById('arrayInit').value;
-
-    // Reseting the value array and active array
-    valueArray.length = activePositions.length = sortedPositions.length = 0;
-    
-    // Getting the number of elements
-    n = Math.floor(width / scale);
-
-    // Populating the array based on user input
-    if(arrayInit == "random") {
-        for(let iteration = 0; iteration < n; iteration++) {
-            valueArray.push(Math.floor(random(height - 10)) + 10);
-        }
-    } 
-    else if(arrayInit == "sorted") {
-        for(let iteration = 0; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, n-1, 10, height - 10)));
-        }
-    }
-    else if(arrayInit == "revSorted") {
-        for(let iteration = 0; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, n-1, height - 10, 10)));
-        }
-    }
-    else if(arrayInit == "incDec") {
-        for(let iteration = 0; iteration < n / 2; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, parseInt(n/2)-1, 10, height - 10)));
-        }
-        for(let iteration = n/2; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, parseInt(n/2), n-1, height - 10, 10)));
-        }
-    }
-    else if(arrayInit == "decInc") {
-        for(let iteration = 0; iteration < n / 2; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, parseInt(n/2)-1, height - 10, 10)));
-        }
-        for(let iteration = n/2; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, parseInt(n/2), n-1, 10, height - 10)));
-        }
-    }
-}
-
-let swap = async (a, b) => {
-    swaps++;
-    let temp = valueArray[a];
-    valueArray[a] = valueArray[b];
-    valueArray[b] = temp;
-}
-
 let getWidth = () => {
     return (window.innerWidth * widthRatio) - ((window.innerWidth * widthRatio) % scale);
 }
@@ -132,10 +58,6 @@ function windowResized() {
     resizeCanvas(getWidth(), window.innerHeight * heightRatio);
     canvas.style.margin = "auto";
     setup();
-}
-
-const getFPS = () => {
-    fps = int(document.getElementById("speedRange").value);
 }
 
 const visualizeArray = async () => {
@@ -160,7 +82,7 @@ const visualizeArray = async () => {
     }
 }
 
-const finishedSorting = () => {
+function finishedSorting() {
     sorted = true;
     looping = false;
     visualizeArray();
