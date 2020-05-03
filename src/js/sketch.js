@@ -76,6 +76,7 @@ let setSortingFunction = async () => {
 
 let initializeArray = async () => {
     let arrayInit = document.getElementById('arrayInit').value;
+
     // Reseting the value array and active array
     valueArray.length = activePositions.length = sortedPositions.length = 0;
     
@@ -83,19 +84,35 @@ let initializeArray = async () => {
     n = Math.floor(width / scale);
 
     // Populating the array based on user input
-    if(arrayInit == "avgCase") {
+    if(arrayInit == "random") {
         for(let iteration = 0; iteration < n; iteration++) {
             valueArray.push(Math.floor(random(height - 10)) + 10);
         }
     } 
-    else if(arrayInit == "bestCase") {
+    else if(arrayInit == "sorted") {
         for(let iteration = 0; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, n, 10, height - 10)));
+            valueArray.push(Math.floor(map(iteration, 0, n-1, 10, height - 10)));
         }
     }
-    else {
+    else if(arrayInit == "revSorted") {
         for(let iteration = 0; iteration < n; iteration++) {
-            valueArray.push(Math.floor(map(iteration, 0, n, height - 10, 10)));
+            valueArray.push(Math.floor(map(iteration, 0, n-1, height - 10, 10)));
+        }
+    }
+    else if(arrayInit == "incDec") {
+        for(let iteration = 0; iteration < n / 2; iteration++) {
+            valueArray.push(Math.floor(map(iteration, 0, parseInt(n/2)-1, 10, height - 10)));
+        }
+        for(let iteration = n/2; iteration < n; iteration++) {
+            valueArray.push(Math.floor(map(iteration, parseInt(n/2), n-1, height - 10, 10)));
+        }
+    }
+    else if(arrayInit == "decInc") {
+        for(let iteration = 0; iteration < n / 2; iteration++) {
+            valueArray.push(Math.floor(map(iteration, 0, parseInt(n/2)-1, height - 10, 10)));
+        }
+        for(let iteration = n/2; iteration < n; iteration++) {
+            valueArray.push(Math.floor(map(iteration, parseInt(n/2), n-1, 10, height - 10)));
         }
     }
 }
