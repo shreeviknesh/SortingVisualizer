@@ -5,10 +5,10 @@ const heightRatio = 0.67;
 let scale = 15;
 let fps = 30;
 
-const backgroundColor   = "#004346";
-const activeColor       = "#FF3CC7";
-const valueColor        = "#39CCCC";
-const sortedColor       = "#01FF70";
+const backgroundColor = "#222";
+const activeColor = "#c2b9b0";
+const valueColor = "#e7717d";
+const sortedColor = "#afd275";
 
 let valueArray = [];
 let activePositions = [];
@@ -26,7 +26,7 @@ let looping = false;
 async function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
     canvas = document.querySelector('canvas');
-    
+
     fps = int(document.getElementById("speedRange").value);
     sorted = false;
     looping = false;
@@ -38,13 +38,13 @@ async function setup() {
     await initializeArray();
     await setSortingFunction();
     await visualizeArray();
-    
+
     noLoop();
 }
 
 function draw() {
     frameRate(fps);
-    if(!sorted && looping) {
+    if (!sorted && looping) {
         background(backgroundColor);
         sortingFunction();
     }
@@ -61,15 +61,16 @@ function windowResized() {
 }
 
 const visualizeArray = async () => {
-    background(backgroundColor);
-    for(let iter = 0; iter < n; iter++) {
-        if(sorted) {
+    // background(backgroundColor);
+    clear();
+    for (let iter = 0; iter < n; iter++) {
+        if (sorted) {
             fill(sortedColor);
         }
-        else if(activePositions.includes(iter)) {
+        else if (activePositions.includes(iter)) {
             fill(activeColor);
-        } 
-        else if(sortedPositions.includes(iter)) {
+        }
+        else if (sortedPositions.includes(iter)) {
             fill(sortedColor);
         }
         else {

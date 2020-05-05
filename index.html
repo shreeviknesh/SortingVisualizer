@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="A Visualizer for various sorting functions"/>
+    <meta name="theme-color" content="#363636">
     <title>Sorting Visualizer</title>
     
     <!-- CSS -->
-    <link rel="shortcut icon" type="image/x-icon" href="src/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico"/>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" href="src/css/dropdown.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
 
     <!-- p5.js Library -->
     <script src="vendor/p5/p5.min.js"></script>
 </head>
-<body style="background:#004346;">
+<body>
     <div>
         <div id="title">Sorting Visualizer</div>
-        <hr style="padding: 0; margin: 0; margin-top: 0.25em; margin-bottom: 0.5em;">
-        <div id="userControls" class="form-horizontal">
-            <label for="sortingFunction">Sorting Function</label>
-            <select name="sortingFunction" id="sortingFunction" onchange="setup();">
-                <option value="bubble">Bubble Sort</option>
-                <option value="optiBubble">Optimized Bubble Sort</option>
-                <option value="selection">Selection Sort</option>
-                <option value="insertion">Insertion Sort</option>
-            </select>
+        <div class="userControls">
+            <div class="dropdown dropdown-dark">
+                <select name="sortingFunction" class="dropdown-select" id="sortingFunction" onchange="setup();">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="optiBubble">Optimized Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                </select>
+            </div>
             <br class="mobile-line-break">
-            <label for="arrayInit">Array Initialization</label>
-            <select name="arrayInit" id="arrayInit" onchange="setup();">
-                <option value="random">Random</option>
-                <option value="revSorted">Reverse-sorted</option>
-                <option value="sorted">Sorted</option>
-                <option value="incDec">Increasing Decreasing</option>
-                <option value="decInc">Decreasing Increasing</option>
-            </select>
+            <div class="dropdown dropdown-dark">
+                <select name="arrayInit" id="arrayInit" class="dropdown-select" onchange="setup();">
+                    <option value="random">Random</option>
+                    <option value="revSorted">Reverse-sorted</option>
+                    <option value="sorted">Sorted</option>
+                    <option value="incDec">Increasing Decreasing</option>
+                    <option value="decInc">Decreasing Increasing</option>
+                </select>
+            </div>
 
             <br>
             <label for="arraySizeRange">Array Size</label>

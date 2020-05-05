@@ -1,3 +1,11 @@
+body {
+  background: url(../img/flowfield-6.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 canvas {
     padding: 0;
     margin: auto;
@@ -10,7 +18,7 @@ canvas {
 }
 
 label, #title {
-    color: #ccc;
+    color: #c2cad0;
 }
 
 select {
@@ -23,9 +31,10 @@ select {
     text-align: center;
     font-size: 1.5em;
     font-weight: bold;
+    margin-top: 0.2em;
 }
 
-#userControls {
+.userControls {
     margin: auto;
     text-align: center;
 }
