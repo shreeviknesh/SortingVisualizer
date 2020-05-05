@@ -24,15 +24,15 @@ let sorted = false;
 let looping = false;
 
 async function setup() {
-    createCanvas(getWidth(), window.innerHeight * heightRatio);
-    canvas = document.querySelector('canvas');
+    canvas = createCanvas(getWidth(), window.innerHeight * heightRatio);
+    canvas.parent('canvas-container');
     fps = int(document.getElementById("speedRange").value);
 
     sorted = false;
     looping = false;
 
     // Mapping from array-size to scale (inversely-proportional)
-    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
+    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 10));
 
     // Initializing the array
     await initializeArray();
@@ -45,7 +45,8 @@ async function setup() {
 function draw() {
     frameRate(fps = int(document.getElementById("speedRange").value));
     if (!sorted && looping) {
-        background(backgroundColor);
+        // background(backgroundColor);
+        clear();
         sortingFunction();
     }
 }
@@ -56,12 +57,11 @@ let getWidth = () => {
 
 function windowResized() {
     resizeCanvas(getWidth(), window.innerHeight * heightRatio);
-    canvas.style.margin = "auto";
+    canvas.style.margin = "auto 1em";
     setup();
 }
 
 const visualizeArray = async () => {
-    // background(backgroundColor);
     clear();
     for (let iter = 0; iter < n; iter++) {
         if (sorted) {

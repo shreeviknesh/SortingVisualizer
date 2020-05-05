@@ -1,24 +1,50 @@
+* {  
+    /* margin: 0; */
+    padding: 0;
+    text-align: center;
+}
+
 body {
-  background: url(../img/flowfield-6.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #c2cad0;
+
+    background: #333537;  
+    background: -webkit-radial-gradient(#515355, #434547, #333537, #000); 
+    background: radial-gradient(#515355, #434547, #333537, #000); 
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#title {
+    font-size: 1.3em;
+    margin: 0.25em;
+}
+
+select {
+    font-size: 0.9em !important;
 }
 
 canvas {
     padding: 0;
     margin: auto;
     display: block;
-    position: absolute;
-    top: 16vh;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
-label, #title {
-    color: #c2cad0;
+footer {
+    color: #aeaeae;
+}
+
+a {
+    color: #7FDBFF;
+}
+
+a:hover {
+    color: #66c2e6;
 }
 
 select {
@@ -27,30 +53,27 @@ select {
     margin-bottom: 0.5em;
 }
 
-#title {
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-top: 0.2em;
+.custom-range {
+    width: 5vw !important;
+    min-width: 5em;
 }
 
-.userControls {
-    margin: auto;
-    text-align: center;
+.range-label {
+    font-size: 0.92em;
 }
 
 .mobile-line-break {
     display: none;
 }
 
-.custom-range {
-    width: 5vw !important;
-    min-width: 5em;
+.buttons-container {
+    margin-top: 0.4em;
 }
 
 @media screen and (max-width: 600px) {
     canvas {
-        top: 25vh;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
     }
 
     .mobile-line-break {

@@ -9,50 +9,56 @@
     
     <!-- CSS -->
     <link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico"/>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
 
     <link rel="stylesheet" href="src/css/dropdown.css"/>
+    <link rel="stylesheet" href="src/css/buttons.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
 
     <!-- p5.js Library -->
     <script src="vendor/p5/p5.min.js"></script>
 </head>
 <body>
-    <div>
-        <div id="title">Sorting Visualizer</div>
-        <div class="userControls">
-            <div class="dropdown dropdown-dark">
-                <select name="sortingFunction" class="dropdown-select" id="sortingFunction" onchange="setup();">
-                    <option value="bubble">Bubble Sort</option>
-                    <option value="optiBubble">Optimized Bubble Sort</option>
-                    <option value="selection">Selection Sort</option>
-                    <option value="insertion">Insertion Sort</option>
-                </select>
-            </div>
-            <br class="mobile-line-break">
-            <div class="dropdown dropdown-dark">
-                <select name="arrayInit" id="arrayInit" class="dropdown-select" onchange="setup();">
-                    <option value="random">Random</option>
-                    <option value="revSorted">Reverse-sorted</option>
-                    <option value="sorted">Sorted</option>
-                    <option value="incDec">Increasing Decreasing</option>
-                    <option value="decInc">Decreasing Increasing</option>
-                </select>
-            </div>
-
-            <br>
-            <label for="arraySizeRange">Array Size</label>
-            <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="setup();">
-
-            <label for="speedRange">Speed</label>
-            <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="speedRange" oninput="getFPS();">
-            
-            <br>
-            <button id="startSorting" type="button" class="btn btn-success btn-sm" onclick="startButton();">Start</button>
-            <button id="pauseSorting" type="button" class="btn btn-warning btn-sm" onclick="pauseButton();">Pause</button>
-            <button id="resetSorting" type="button" class="btn btn-danger btn-sm" onclick="resetButton();">Reset</button>
+    <h1 id="title">Sorting Visualizer</h1>
+    <div class="userControls">
+        <div class="dropdown">
+            <select name="sortingFunction" class="dropdown-select" id="sortingFunction" onchange="setup();">
+                <option value="bubble">Bubble Sort</option>
+                <option value="optiBubble">Optimized Bubble Sort</option>
+                <option value="selection">Selection Sort</option>
+                <option value="insertion">Insertion Sort</option>
+            </select>
         </div>
+        <br class="mobile-line-break">
+        <div class="dropdown">
+            <select name="arrayInit" id="arrayInit" class="dropdown-select" onchange="setup();">
+                <option value="random">Random</option>
+                <option value="revSorted">Reverse-sorted</option>
+                <option value="sorted">Sorted</option>
+                <option value="incDec">Increasing Decreasing</option>
+                <option value="decInc">Decreasing Increasing</option>
+            </select>
+        </div>
+
+        <br>
+        <label for="arraySizeRange" class="range-label">Array Size</label>
+        <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="setup();">
+
+        <label for="speedRange" class="range-label">Speed</label>
+        <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="speedRange">
+        
+        <br>
+        <div class="buttons-container">
+            <span id="startSorting" type="button" class="btn btn-start" onclick="startButton();">Start</span>
+            <span id="pauseSorting" type="button" class="btn btn-pause" onclick="pauseButton();">Pause</span>
+            <span id="resetSorting" type="button" class="btn btn-reset" onclick="resetButton();">Reset</span>
+        </div>
+
     </div>
+    <div id="canvas-container"></div>
+
+    <footer>
+        Made with &#10084;&#65039; by <a href="https://github.com/shreeviknesh/">Shreeviknesh Sankaran</a>
+    </footer>
 </body>
 
 <!-- Custom Scripts -->
