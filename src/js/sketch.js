@@ -26,8 +26,8 @@ let looping = false;
 async function setup() {
     createCanvas(getWidth(), window.innerHeight * heightRatio);
     canvas = document.querySelector('canvas');
-
     fps = int(document.getElementById("speedRange").value);
+
     sorted = false;
     looping = false;
 
@@ -43,7 +43,7 @@ async function setup() {
 }
 
 function draw() {
-    frameRate(fps);
+    frameRate(fps = int(document.getElementById("speedRange").value));
     if (!sorted && looping) {
         background(backgroundColor);
         sortingFunction();
