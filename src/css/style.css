@@ -73,7 +73,7 @@ select {
 @media screen and (max-width: 600px) {
     canvas {
         margin-top: 0.3em;
-        margin-bottom: 0.3em;
+        margin-bottom: 0.35em;
     }
 
     .mobile-line-break {
