@@ -57,7 +57,6 @@ let getWidth = () => {
 
 function windowResized() {
     resizeCanvas(getWidth(), window.innerHeight * heightRatio);
-    canvas.style.margin = "auto 1em";
     setup();
 }
 
@@ -79,7 +78,7 @@ const visualizeArray = async () => {
 
         strokeWeight(1);
         // noStroke();
-        rect(iter * scale, height, 1 * scale, - valueArray[iter]);
+        rect(iter * scale, height, 1 * scale - 2, - valueArray[iter]);
     }
 }
 
