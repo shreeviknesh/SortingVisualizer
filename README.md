@@ -15,7 +15,7 @@ Contents
 |[Selection Sort](#selection-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Insertion Sort](#insertion-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Binary Insertion Sort](#binary-insertion-sort)|<img src="https://img.shields.io/badge/-No-FF4136">|
-|Quick Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|[Quick Sort](#quick-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |Merge Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
@@ -48,3 +48,16 @@ Insertion Sort
 #### Binary Insertion Sort:
 - The algorithm can be optimized by using binary search to reduce the number of comparisons.
 - This the comparisons in n<sup>th</sup> iteration from O(n<sup>2</sup>) to O(log n).
+
+Quick Sort
+----
+- Quick sort is a Divide and Conquer algorithm that picks an element as pivot and partitions the array around the pivot.
+- The key process of the algorithm is the `partition()` function. The goal of the partition function, given the array and a pivot element p, place p in the right position in the array with elements < p before p and elements > p after p. This must be done in linear time.
+- The time complexity of the the quick sort algorithm greatly depends on the `partition()` function and picking the pivot value.
+- The average-case and best-case time complexity of quick sort is O(log n). 
+- The worst-case time complexity of quick sort is O(n<sup>2</sup>).
+#### Pivot selection strategies:
+1. First element as pivot
+2. Last element as pivot
+3. Median element as pivot
+4. Random element as pivot (Implemented)
