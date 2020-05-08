@@ -15,8 +15,12 @@ const valueColor = "#e7717d";
 const sortedColor = "#afd275";
 
 let valueArray = [];
-let activePositions = [];
-let sortedPositions = [];
+// array State lookup:
+// 1 - active
+// -1 - sorted
+// 0 - nothing
+let stateArray = [];
+
 let swaps = 0;
 let looping = false;
 
@@ -40,9 +44,15 @@ async function initialize() {
 window.onresize = initialize;
 
 async function animate() {
-    noLoop();
-    looping = true;
-    loopID = setInterval(sortingFunction, 1000 / fps);
+    if (sortingFunction == quickSort) {
+        quickSort(0, valueArray.length - 1).then(finishedSorting);
+        loopID = setInterval(visualize, 1000 / fps);
+    }
+    else {
+        noLoop();
+        looping = true;
+        loopID = setInterval(sortingFunction, 1000 / fps);
+    }
 }
 
 initialize();

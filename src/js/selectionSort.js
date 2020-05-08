@@ -11,7 +11,7 @@ async function selectionSort() {
 
     if (j >= n) {
         await swap(i, pos);
-        sortedPositions.push(i);
+        stateArray[i] = -1;
         i++;
         pos = i;
         j = i;
@@ -22,6 +22,7 @@ async function selectionSort() {
         return;
     }
 
-    activePositions = [pos];
+    stateArray[pos] = 1;
     await visualize();
+    stateArray[pos] = 0;
 }

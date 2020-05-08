@@ -10,7 +10,7 @@ async function optimizedBubbleSort() {
     j++;
     if (j >= n - i - 1) {
         j = 0;
-        sortedPositions.push(n - i - 1);
+        stateArray[n - i - 1] = -1;
         i++;
         if (swaps == 0) {
             finishedSorting();
@@ -24,6 +24,7 @@ async function optimizedBubbleSort() {
         return;
     }
 
-    activePositions = [j];
+    stateArray[j] = 1;
     await visualize();
+    stateArray[j] = 0;
 }

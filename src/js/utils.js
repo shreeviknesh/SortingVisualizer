@@ -1,8 +1,15 @@
-async function swap(a, b) {
+async function swap(a, b, toSleep) {
+    if (toSleep != undefined && toSleep == true) {
+        await sleep(1000 / fps);
+    }
     swaps++;
     let temp = valueArray[a];
     valueArray[a] = valueArray[b];
     valueArray[b] = temp;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function map(x, a, b, p, q) {
@@ -20,7 +27,7 @@ function noLoop() {
 function finishedSorting() {
     noLoop();
     looping = false;
-    sortedPositions.length = activePositions.length = 0;
+    stateArray.length = 0;
     visualize(true);
 }
 
@@ -45,11 +52,13 @@ async function initializeArray() {
     let arrayInit = document.getElementById('arrayInit').value;
 
     // Reseting the value array and active array
-    valueArray.length = activePositions.length = sortedPositions.length = 0;
+    valueArray.length = stateArray.length = 0;
 
     // Getting the number of elements
     n = Math.floor(width / scale);
     setSize(n * scale, height);
+
+    stateArray = new Array(n).fill(0);
 
     let low = 20;
     let high = height;
@@ -116,7 +125,6 @@ async function initializeArray() {
 
 async function setSortingFunction() {
     let sortingChoiceVal = document.getElementById('sortingFunction').value;
-
     if (sortingChoiceVal == "bubble") {
         sortingFunction = bubbleSort;
         i = j = 0;
@@ -135,6 +143,9 @@ async function setSortingFunction() {
         j = 0;
         value = valueArray[1];
     }
+    else if (sortingChoiceVal == "quick") {
+        sortingFunction = quickSort;
+    }
 }
 
 async function visualize(sorted) {
@@ -143,10 +154,10 @@ async function visualize(sorted) {
         if (sorted || false) {
             context.fillStyle = sortedColor;
         }
-        else if (activePositions.includes(i)) {
+        else if (stateArray[i] == 1) {
             context.fillStyle = activeColor;
         }
-        else if (sortedPositions.includes(i)) {
+        else if (stateArray[i] == -1) {
             context.fillStyle = sortedColor;
         }
         else {
