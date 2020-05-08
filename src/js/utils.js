@@ -19,7 +19,6 @@ function noLoop() {
 
 function finishedSorting() {
     noLoop();
-    // sorted = true;
     looping = false;
     sortedPositions.length = activePositions.length = 0;
     visualize(true);
@@ -73,20 +72,44 @@ async function initializeArray() {
     }
     else if (arrayInit == "incDec") {
         let i = 0;
-        for (; i <= parseInt(n / 2); i++) {
-            valueArray.push(Math.floor(map(i, 0, parseInt(n / 2), low, high)));
+        let tempArray = [];
+        if (n % 2 == 1) {
+            for (; i < parseInt(n / 2) + 1; i++) {
+                tempArray.push(Math.floor(map(i, 0, parseInt(n / 2), low, high)));
+            }
+            valueArray = [...tempArray];
+            tempArray.pop();
+            tempArray.reverse();
+            valueArray = valueArray.concat(tempArray);
         }
-        for (; i < n; i++) {
-            valueArray.push(Math.floor(map(i, parseInt(n / 2) + 1, n - 1, high, low)));
+        else {
+            for (; i < parseInt(n / 2); i++) {
+                tempArray.push(Math.floor(map(i, 0, parseInt(n / 2) - 1, low, high)));
+            }
+            valueArray = [...tempArray];
+            tempArray.reverse();
+            valueArray = valueArray.concat(tempArray);
         }
     }
     else if (arrayInit == "decInc") {
         let i = 0;
-        for (; i <= parseInt(n / 2); i++) {
-            valueArray.push(Math.floor(map(i, 0, parseInt(n / 2), high, low)));
+        let tempArray = [];
+        if (n % 2 == 1) {
+            for (; i < parseInt(n / 2) + 1; i++) {
+                tempArray.push(Math.floor(map(i, 0, parseInt(n / 2), high, low)));
+            }
+            valueArray = [...tempArray];
+            tempArray.pop();
+            tempArray.reverse();
+            valueArray = valueArray.concat(tempArray);
         }
-        for (; i < n; i++) {
-            valueArray.push(Math.floor(map(i, parseInt(n / 2) + 1, n - 1, low, high)));
+        else {
+            for (; i < parseInt(n / 2); i++) {
+                tempArray.push(Math.floor(map(i, 0, parseInt(n / 2) - 1, high, low)));
+            }
+            valueArray = [...tempArray];
+            tempArray.reverse();
+            valueArray = valueArray.concat(tempArray);
         }
     }
 }
