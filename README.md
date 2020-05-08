@@ -1,7 +1,11 @@
 # Sorting Visualizer
-A webpage to visualize the various sorting algorithms made using [p5.js](https://p5js.org/) library.
+A web-application to visualize the various sorting algorithms made using vanilla JS (no libraries).
+#### Features:
+- Control the Array Size
+- Control the Sorting Speed
+- Play/Pause the algorithm
 
-> The website is publised at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
+> It is publised at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
 
 Contents
 ----
