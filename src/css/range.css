@@ -1,6 +1,7 @@
 input[type=range] {
     -webkit-appearance: none;
-    width: 100%;
+    width: 5vw;
+    min-width: 5em;
     transform: translateY(-0.35em);
 }
 
@@ -10,7 +11,7 @@ input[type=range]:focus {
 
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 0.35em;
+    height: 0.5em;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #7FDBFF;
@@ -21,13 +22,13 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 1px solid #001f3f;
-    height: 1.2em;
-    width: 0.64em;
+    height: 1.75em;
+    width: 0.78em;
     border-radius: 3px;
     background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -0.5em;
+    margin-top: -0.62em;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
@@ -36,7 +37,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 input[type=range]::-moz-range-track {
     width: 100%;
-    height: 0.25em;
+    height: 0.5em;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #7FDBFF;
@@ -47,17 +48,17 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 1px solid #001f3f;
-    height: 1.2em;
-    width: 0.64em;
+    height: 1.75em;
+    width: 0.78em;
     border-radius: 3px;
     background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -0.5em;
+    margin-top: -0.62em;
 }
 input[type=range]::-ms-track {
     width: 100%;
-    height: 0.35em; 
+    height: 0.5em;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: #7FDBFF;
@@ -79,13 +80,13 @@ input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     border: 1px solid #001f3f;
-    height: 1.2em;
-    width: 0.64em;
+    height: 1.75em;
+    width: 0.78em;
     border-radius: 3px;
     background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -0.5em;
+    margin-top: -0.62em;
 }
 input[type=range]:focus::-ms-fill-lower {
     background: #3071a9;

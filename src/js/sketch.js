@@ -15,6 +15,9 @@ const activeColor1 = "#7FDBFF";
 const valueColor = "#e7717d";
 const sortedColor = "#afd275";
 
+const resetBtn = document.getElementById("resetSorting");
+const pauseBtn = document.getElementById('pauseSorting');
+
 let valueArray = [];
 // array State lookup:
 //  1 - active1
@@ -52,7 +55,10 @@ async function animate() {
         return;
     }
     if (sortingFunction == quickSort && !sorted) {
-        quickSort(0, valueArray.length - 1).then(finishedSorting);
+        resetBtn.classList.toggle("disabled");
+        quickSort(0, valueArray.length - 1).then(finishedSorting).then(() => {
+            resetBtn.classList.toggle("disabled");
+        });
         loopID = setInterval(visualize, 1000 / fps);
     }
     else {

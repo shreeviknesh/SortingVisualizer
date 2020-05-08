@@ -126,32 +126,28 @@ async function initializeArray() {
 
 async function setSortingFunction() {
     let sortingChoiceVal = document.getElementById('sortingFunction').value;
-    const pauseButton = document.getElementById('pauseSorting');
+    pauseBtn.classList.remove("disabled");
 
     if (sortingChoiceVal == "bubble") {
-        pauseButton.style.display = 'inline';
         sortingFunction = bubbleSort;
         i = j = 0;
     }
     else if (sortingChoiceVal == "optiBubble") {
-        pauseButton.style.display = 'inline';
         sortingFunction = optimizedBubbleSort;
         i = j = swaps = 0;
     }
     else if (sortingChoiceVal == "selection") {
-        pauseButton.style.display = 'inline';
         sortingFunction = selectionSort;
         i = j = pos = 0;
     }
     else if (sortingChoiceVal == "insertion") {
-        pauseButton.style.display = 'inline';
         sortingFunction = insertionSort;
         i = 1;
         j = 0;
         value = valueArray[1];
     }
     else if (sortingChoiceVal == "quick") {
-        pauseButton.style.display = 'none';
+        pauseBtn.classList.add("disabled");
         sortingFunction = quickSort;
     }
 }
@@ -199,7 +195,7 @@ function resetButton() {
 }
 
 function getFps() {
-    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 100));
+    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 120));
     if (sortingFunction == quickSort) {
         return;
     }
@@ -209,5 +205,5 @@ function getFps() {
 }
 
 async function getScale() {
-    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 10));
+    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 7));
 }
