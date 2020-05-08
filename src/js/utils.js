@@ -168,6 +168,9 @@ async function visualize() {
         else if (stateArray[i] == 2) {
             context.fillStyle = activeColor2;
         }
+        else if (stateArray[i] == 2) {
+            context.fillStyle = 'blue';
+        }
         else if (stateArray[i] == -1) {
             context.fillStyle = sortedColor;
         }
