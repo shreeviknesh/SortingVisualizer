@@ -36,3 +36,4 @@ TODO
 - [ ] Quick Sort
 - [ ] Merge Sort
 - [ ] Heap Sort
+- [ ] Counting Sort
