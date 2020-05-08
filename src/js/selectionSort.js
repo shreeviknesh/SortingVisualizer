@@ -1,27 +1,27 @@
-function selectionSort() {
-    if(!looping || sorted) {
+async function selectionSort() {
+    if (!looping) {
         return;
     }
-    
-    if(valueArray[j] < valueArray[pos]) {
+
+    if (valueArray[j] < valueArray[pos]) {
         pos = j;
     }
 
     j++;
 
-    if(j >= n) {
-        swap(i, pos);
+    if (j >= n) {
+        await swap(i, pos);
         sortedPositions.push(i);
         i++;
         pos = i;
         j = i;
     }
 
-    if(i >= n - 1) {
+    if (i >= n - 1) {
         finishedSorting();
         return;
     }
-        
+
     activePositions = [pos];
-    visualizeArray();
+    await visualize();
 }

@@ -14,15 +14,12 @@
     <link rel="stylesheet" href="src/css/buttons.css"/>
     <link rel="stylesheet" href="src/css/range.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
-
-    <!-- p5.js Library -->
-    <script src="vendor/p5/p5.min.js"></script>
 </head>
 <body>
     <h1 id="title">Sorting Visualizer</h1>
     <div class="userControls">
         <div class="dropdown">
-            <select name="sortingFunction" class="dropdown-select" id="sortingFunction" onchange="setup();">
+            <select name="sortingFunction" class="dropdown-select" id="sortingFunction" onchange="initialize();">
                 <option value="bubble">Bubble Sort</option>
                 <option value="optiBubble">Optimized Bubble Sort</option>
                 <option value="selection">Selection Sort</option>
@@ -31,7 +28,7 @@
         </div>
         <br class="mobile-line-break">
         <div class="dropdown">
-            <select name="arrayInit" id="arrayInit" class="dropdown-select" onchange="setup();">
+            <select name="arrayInit" id="arrayInit" class="dropdown-select" onchange="initialize();">
                 <option value="random">Random</option>
                 <option value="revSorted">Reverse-sorted</option>
                 <option value="sorted">Sorted</option>
@@ -42,10 +39,10 @@
 
         <br>
         <label for="arraySizeRange" class="range-label">Array Size</label>
-        <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="setup();">
+        <input type="range" class="custom-range" min="0" max="100" value="50" step="5" id="arraySizeRange" oninput="initialize();">
 
         <label for="speedRange" class="range-label">Speed</label>
-        <input type="range" class="custom-range"  min="1" max="60" value="30" step="1" id="speedRange">
+        <input type="range" class="custom-range"  min="0" max="100" value="30" step="2" id="speedRange" oninput="getFps();">
         
         <br>
         <div class="buttons-container">
@@ -55,7 +52,7 @@
         </div>
 
     </div>
-    <div id="canvas-container"></div>
+    <canvas id="main-canvas"></canvas>
 
     <footer>
         Made with &#10084;&#65039; by <a href="https://github.com/shreeviknesh/">Shreeviknesh Sankaran</a>
@@ -67,7 +64,7 @@
 <script src="src/js/optimizedBubbleSort.js"></script>
 <script src="src/js/selectionSort.js"></script>
 <script src="src/js/insertionSort.js"></script>
+
 <script src="src/js/utils.js"></script>
 <script src="src/js/sketch.js"></script>
-
 </html>
