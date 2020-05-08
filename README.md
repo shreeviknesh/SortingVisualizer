@@ -3,14 +3,28 @@ A webpage to visualize the various sorting algorithms made using [p5.js](https:/
 
 > The website is publised at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
 
+Contents
+----
+|Sorting Algorithm|Implemented?|
+|:-:|:-:|
+|[Bubble Sort](#bubble-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|[Optimized Bubble Sort](#optimized-bubble-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|[Selection Sort](#selection-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|[Insertion Sort](#insertion-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|Quick Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Merge Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Radix Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+
 Bubble Sort
 ----
 - Bubble sort is the simplest (and slowest) sorting algorithm.
 - It goes through the whole array and swaps adjacent elements if they're in the wrong order. 
 - The worst-case time complexity is O(n<sup>2</sup>) even if the array is sorted.
-- Optimization:
-  - The algorithm can be optimized to stop if the inner loop does not cause any swaps, i.e., the array is sorted.
-  - This leads to the best-case time complexity of O(n) and average-case time complexity of O(n<sup>2</sup>).
+#### Optimized Bubble Sort:
+- The algorithm can be optimized to stop if the inner loop does not cause any swaps, i.e., the array is sorted.
+- This leads to the best-case time complexity of O(n) and average-case time complexity of O(n<sup>2</sup>).
   
 Selection Sort
 ----
@@ -29,11 +43,3 @@ Insertion Sort
 - It is used when the number of elements in the array is small, or when the input array is almost sorted.
 - Optimization:
   - The algorithm can be optimized by using binary search to reduce the number of comparisons.
-
-TODO
-----
-- [x] Insertion Sort
-- [ ] Quick Sort
-- [ ] Merge Sort
-- [ ] Heap Sort
-- [ ] Counting Sort
