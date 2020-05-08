@@ -19,6 +19,9 @@ async function insertionSort() {
         return;
     }
 
-    activePositions = [j, i];
+    stateArray[j] = 1;
+    stateArray[i] = 1;
     await visualize();
+    stateArray[j] = 0;
+    stateArray[i] = 0;
 }

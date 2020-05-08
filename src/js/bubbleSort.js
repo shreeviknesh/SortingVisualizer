@@ -1,16 +1,16 @@
-function bubbleSort() {
+async function bubbleSort() {
     if (!looping) {
         return;
     }
 
     if (valueArray[j] > valueArray[j + 1]) {
-        swap(j, j + 1);
+        await swap(j, j + 1);
     }
 
     j++;
     if (j >= n - i - 1) {
         j = 0;
-        sortedPositions.push(n - i - 1);
+        stateArray[n - i - 1] = -1;
         i++;
     }
 
@@ -20,5 +20,7 @@ function bubbleSort() {
     }
 
     activePositions = [j];
-    visualize();
+    stateArray[j] = 1;
+    await visualize();
+    stateArray[j] = 0;
 }
