@@ -14,7 +14,7 @@ Contents
 |[Optimized Bubble Sort](#optimized-bubble-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Selection Sort](#selection-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Insertion Sort](#insertion-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
-|Optimized Insertion Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|[Binary Insertion Sort](#binary-insertion-sort)|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Quick Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Merge Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
@@ -45,5 +45,6 @@ Insertion Sort
 - The worst-case and average-case time complexity is O(n<sup>2</sup>).
 - The best-case time complexity is O(n) when the elements are in sorted order.
 - It is used when the number of elements in the array is small, or when the input array is almost sorted.
-- Optimization:
-  - The algorithm can be optimized by using binary search to reduce the number of comparisons.
+#### Binary Insertion Sort:
+- The algorithm can be optimized by using binary search to reduce the number of comparisons.
+- This the comparisons in n<sup>th</sup> iteration from O(n<sup>2</sup>) to O(log n).
