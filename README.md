@@ -1,11 +1,10 @@
 # Sorting Visualizer
 A web-application to visualize the various sorting algorithms made using vanilla JS (no libraries).
+> Published at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
 #### Features:
 - Control the Array Size
 - Control the Sorting Speed
 - Play/Pause the algorithm
-
-> It is publised at [Sorting Visualizer](https://shreeviknesh.github.io/SortingVisualizer/)
 
 Contents
 ----
