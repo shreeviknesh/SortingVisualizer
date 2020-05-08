@@ -150,7 +150,7 @@ function resetButton() {
 }
 
 function getFps() {
-    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 1000));
+    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 100));
     if (looping == true) {
         animate();
     }
