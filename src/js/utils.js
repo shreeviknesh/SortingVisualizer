@@ -27,8 +27,9 @@ function noLoop() {
 function finishedSorting() {
     noLoop();
     looping = false;
+    sorted = true;
     stateArray.length = 0;
-    visualize(true);
+    visualize();
 }
 
 async function setSize(w, h) {
@@ -125,37 +126,47 @@ async function initializeArray() {
 
 async function setSortingFunction() {
     let sortingChoiceVal = document.getElementById('sortingFunction').value;
+    const pauseButton = document.getElementById('pauseSorting');
+
     if (sortingChoiceVal == "bubble") {
+        pauseButton.style.display = 'inline';
         sortingFunction = bubbleSort;
         i = j = 0;
     }
     else if (sortingChoiceVal == "optiBubble") {
+        pauseButton.style.display = 'inline';
         sortingFunction = optimizedBubbleSort;
         i = j = swaps = 0;
     }
     else if (sortingChoiceVal == "selection") {
+        pauseButton.style.display = 'inline';
         sortingFunction = selectionSort;
         i = j = pos = 0;
     }
     else if (sortingChoiceVal == "insertion") {
+        pauseButton.style.display = 'inline';
         sortingFunction = insertionSort;
         i = 1;
         j = 0;
         value = valueArray[1];
     }
     else if (sortingChoiceVal == "quick") {
+        pauseButton.style.display = 'none';
         sortingFunction = quickSort;
     }
 }
 
-async function visualize(sorted) {
+async function visualize() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < valueArray.length; i++) {
-        if (sorted || false) {
+        if (sorted) {
             context.fillStyle = sortedColor;
         }
         else if (stateArray[i] == 1) {
-            context.fillStyle = activeColor;
+            context.fillStyle = activeColor1;
+        }
+        else if (stateArray[i] == 2) {
+            context.fillStyle = activeColor2;
         }
         else if (stateArray[i] == -1) {
             context.fillStyle = sortedColor;
@@ -170,6 +181,7 @@ async function visualize(sorted) {
 }
 
 function startButton() {
+    looping = true;
     animate();
 }
 
@@ -185,6 +197,9 @@ function resetButton() {
 
 function getFps() {
     fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 100));
+    if (sortingFunction == quickSort) {
+        return;
+    }
     if (looping == true) {
         animate();
     }
