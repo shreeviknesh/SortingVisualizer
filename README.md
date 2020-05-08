@@ -14,6 +14,7 @@ Contents
 |[Optimized Bubble Sort](#optimized-bubble-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Selection Sort](#selection-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Insertion Sort](#insertion-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|Optimized Insertion Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Quick Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Merge Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
