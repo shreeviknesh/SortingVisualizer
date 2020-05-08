@@ -174,7 +174,7 @@ async function visualize() {
             context.fillStyle = valueColor;
         }
         context.fillRect(i * scale + offset, height, scale - (2 * offset), - valueArray[i]);
-        context.lineWidth = 1;
+        context.lineWidth = (scale < 15) ? 0.1 : 0.4;
         context.strokeRect(i * scale + offset, height, scale - (2 * offset), - valueArray[i]);
     }
 }
