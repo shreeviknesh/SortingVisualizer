@@ -9,14 +9,16 @@ let context = canvas.getContext('2d');
 let height, width;
 setSize();
 
-const backgroundColor = "#222";
-const activeColor2 = "#c2b9b0";
-const activeColor1 = "#7FDBFF";
-const valueColor = "#e7717d";
-const sortedColor = "#afd275";
+const backgroundColor = "#222222";
+const activeColor1 = "#FDB0C0";
+const activeColor2 = "#8AB8FE";
+const activeColor3 = "#FCFC81";
+const valueColor = "#FD4659";
+const sortedColor = "#2DFE54";
 
 const resetBtn = document.getElementById("resetSorting");
 const pauseBtn = document.getElementById('pauseSorting');
+const speedRan = document.getElementById('speedRange');
 
 let valueArray = [];
 // array State lookup:
@@ -28,7 +30,8 @@ let stateArray = [];
 
 let swaps = 0;
 let looping = false;
-let sorted = false;
+let sorted = true;
+// let recursing = false;
 
 let sortingFunction;
 
@@ -39,7 +42,6 @@ async function initialize() {
     await getScale();
     await setSize();
 
-    // sorted = false;
     looping = false;
     sorted = false;
     swaps = 0;
@@ -54,16 +56,24 @@ async function animate() {
     if (sorted) {
         return;
     }
-    if (sortingFunction == quickSort && !sorted) {
-        resetBtn.classList.toggle("disabled");
-        quickSort(0, valueArray.length - 1).then(finishedSorting).then(() => {
-            resetBtn.classList.toggle("disabled");
-        });
+    looping = true;
+    if ((sortingFunction == quickSort || sortingFunction == mergeSort) && !sorted) {
+        if (sortingFunction == mergeSort) {
+            speedRan.disabled = true;
+        }
         loopID = setInterval(visualize, 1000 / fps);
+        await sortingFunction(0, valueArray.length - 1);
+        if (looping == false) {
+            await sleep(250);
+            finishedSorting();
+        }
+        else {
+            finishedSorting();
+        }
+        speedRan.disabled = false;
     }
     else {
         noLoop();
-        looping = true;
         loopID = setInterval(sortingFunction, 1000 / fps);
     }
 }
