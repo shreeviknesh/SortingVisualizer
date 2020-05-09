@@ -28,9 +28,40 @@ Bubble Sort
 - Bubble sort is the simplest (and slowest) sorting algorithm.
 - It goes through the whole array and swaps adjacent elements if they're in the wrong order. 
 - The worst-case time complexity is O(n<sup>2</sup>) even if the array is sorted.
+#### Pseudocode:
+```
+begin BubbleSort(array):
+  for i in [0,n):
+    for j in [0,n-i):
+      if array[j] > array[j+1] then
+        swap(array[j], array[j+1])
+      end if
+    end for
+  end for
+end BubbleSort
+```
 #### Optimized Bubble Sort:
 - The algorithm can be optimized to stop if the inner loop does not cause any swaps, i.e., the array is sorted.
 - This leads to the best-case time complexity of O(n) and average-case time complexity of O(n<sup>2</sup>).
+<!--
+#### Pseudocode:
+```
+begin BubbleSort(array):
+  for i in [0,n):
+    swapped = False
+    for j in [0,n-i):
+      if array[j] > array[j+1] then
+        swap(array[j], array[j+1])
+        swapped = True
+      end if
+    end for
+    if swapped = False then
+      break
+    endif
+  end for
+end BubbleSort
+```
+-->
   
 Selection Sort
 ----
@@ -39,7 +70,22 @@ Selection Sort
 - During each iteration, it finds the minimum element in the unsorted part and puts it to the sorted part.
 - The worst-case time complexity is O(n<sup>2</sup>).
 - The advantage of selection sort over bubble sort is that it never makes more than O(n) swaps. This can come in handy when memory write is costly.
-
+#### Pseudocode:
+```
+begin selectionSort(array):
+  for i in (0,n):
+    min = i
+    for j in (i,n):
+      if list[j] < list[min] then
+        min = j
+      end if
+    end for
+    if min != i  then
+      swap(array[min], array[i])
+    end if
+  end for
+end selectionSort
+```
 Insertion Sort
 ----
 - Insertion sort is a simple sorting algorithm that works the way we sort playing cards.
