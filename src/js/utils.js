@@ -3,9 +3,8 @@ async function swap(a, b, toSleep) {
         await sleep(1000 / fps);
     }
     swaps++;
-    let temp = valueArray[a];
-    valueArray[a] = valueArray[b];
-    valueArray[b] = temp;
+
+    [valueArray[a], valueArray[b]] = [valueArray[b], valueArray[a]];
 }
 
 function sleep(ms) {
@@ -138,7 +137,9 @@ async function initializeArray() {
 
 async function setSortingFunction() {
     let sortingChoiceVal = document.getElementById('sortingFunction').value;
+    let seizureButton = document.getElementById('seizureBtn');
     pauseBtn.classList.remove("disabled");
+    seizureButton.style.display = 'none';
 
     if (sortingChoiceVal == "bubble") {
         sortingFunction = bubbleSort;
@@ -165,6 +166,10 @@ async function setSortingFunction() {
     else if (sortingChoiceVal == "merge") {
         pauseBtn.classList.add("disabled");
         sortingFunction = mergeSort;
+    }
+    else if (sortingChoiceVal == "bogo") {
+        sortingFunction = bogoSort;
+        seizureButton.style.display = 'inline';
     }
 }
 
@@ -211,6 +216,19 @@ function pauseButton() {
 function resetButton() {
     noLoop();
     initialize();
+}
+
+function seizureButton() {
+    document.getElementById('seizureBtn').classList.toggle('active-pause');
+    if (seizure == false) {
+        seizure = true;
+        for (let x = 0; x < stateArray.length; x++) {
+            stateArray[x] = 0;
+        }
+    }
+    else {
+        seizure = false;
+    }
 }
 
 function getFps() {

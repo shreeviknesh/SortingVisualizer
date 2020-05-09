@@ -31,6 +31,7 @@ let stateArray = [];
 let swaps = 0;
 let looping = false;
 let sorted = true;
+let seizure = false;
 // let recursing = false;
 
 let sortingFunction;
@@ -44,6 +45,7 @@ async function initialize() {
 
     looping = false;
     sorted = false;
+    seizure = false;
     swaps = 0;
 
     await initializeArray();
