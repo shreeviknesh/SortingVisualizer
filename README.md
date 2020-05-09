@@ -22,7 +22,7 @@ Contents
 |[Merge Sort](#merge-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |Intro Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Gnome Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
-|Bogo Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Bogo Sort|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |Cocktail Shaker Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
