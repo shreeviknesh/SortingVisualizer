@@ -185,7 +185,7 @@ Bogo Sort
 #### Pseudocode:
 ```python
 begin bogoSort(array):
-  while !sorted(array):
+  while not sorted(array):
     shuffle(array)
   end while
 end bogoSort
