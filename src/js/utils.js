@@ -214,7 +214,7 @@ function resetButton() {
 }
 
 function getFps() {
-    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 80));
+    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 60));
     if (sortingFunction == quickSort) {
         return;
     }
