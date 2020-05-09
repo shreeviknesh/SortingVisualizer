@@ -195,7 +195,7 @@ function resetButton() {
 }
 
 function getFps() {
-    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 120));
+    fps = parseInt(map(parseInt(document.getElementById('speedRange').value), 0, 100, 1, 80));
     if (sortingFunction == quickSort) {
         return;
     }
@@ -205,5 +205,5 @@ function getFps() {
 }
 
 async function getScale() {
-    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 7));
+    scale = parseInt(map(parseInt(document.getElementById("arraySizeRange").value), 0, 100, 80, 5));
 }
