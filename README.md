@@ -49,14 +49,14 @@ Insertion Sort
 - It is used when the number of elements in the array is small, or when the input array is almost sorted.
 #### Binary Insertion Sort:
 - The algorithm can be optimized by using binary search to reduce the number of comparisons.
-- This the comparisons in n<sup>th</sup> iteration from O(n<sup>2</sup>) to O(log n).
+- Thus the comparisons in n<sup>th</sup> iteration decreases from O(n<sup>2</sup>) to O(log n).
 
 Quick Sort
 ----
 - Quick sort is a Divide and Conquer algorithm that picks an element as pivot and partitions the array around the pivot.
 - The key process of the algorithm is the `partition()` function. The goal of the partition function, given the array and a pivot element p, place p in the right position in the array with elements < p before p and elements > p after p. This must be done in linear time.
 - The time complexity of the the quick sort algorithm greatly depends on the `partition()` function and picking the pivot value.
-- The average-case and best-case time complexity of quick sort is O(n.log(n)).
+- The average-case and best-case time complexity of quick sort is O(nlog n).
 - The worst-case time complexity of quick sort is O(n<sup>2</sup>).
 #### Pivot selection strategies:
 1. First element as pivot
@@ -69,5 +69,5 @@ Merge Sort
 - Merge sort is also a Divide and Conquer algorithm that divides the array into two halves and recursively calls merge sort on each half.
 - The elements are then combined together in sorted order from the sub-arrays.
 - The `merge()` function is used to combine the two halves of the array. It is a key process and it assumes that the two subarrays are already in sorted order. Therefore, `merge()` must be invoked only after the sorting of all the subarrays are completed.
-- The time complexity of merge sort algorithm in all three cases (worst-case, best-case and average-case) is O(nLog(n)). Therefore, it is one of the most widely-used sorting algorithms.
-- The one major drawback of merge sort is the use of O(n) auxiliary (extra) space. This problem can be solved by using the `merge()` function to combine the elements in-place. *(Implemented)*I
+- The time complexity of merge sort algorithm in all three cases (worst-case, best-case and average-case) is O(nlog n). Therefore, it is one of the most widely-used sorting algorithms.
+- The one major drawback of merge sort is the use of O(n) auxiliary (extra) space. This problem can be solved by using the `merge()` function to combine the elements in-place. *(Implemented)*
