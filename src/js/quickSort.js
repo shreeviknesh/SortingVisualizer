@@ -1,8 +1,12 @@
 async function quickSort(start, end) {
-    if (start >= end) {
+    if (!looping) {
+        // Sorted
         return;
     }
-
+    if (start >= end) {
+        // Interrupted
+        return;
+    }
     let pivot = await randomPartition(start, end);
     await Promise.all([
         quickSort(start, pivot - 1),
@@ -24,7 +28,7 @@ async function partition(start, end) {
     let pivot = start;
     let i = start + 1;
 
-    for (let j = start + 1; j <= end; j++) {
+    for (let j = start + 1; j <= end && looping; j++) {
         if (valueArray[j] <= valueArray[pivot]) {
             await swap(j, i, true);
             stateArray[i] = 2;
