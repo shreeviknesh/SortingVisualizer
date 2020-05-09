@@ -27,7 +27,8 @@
 }
 
 .btn-start {
-    background: #5cb85c;
+    /* background: #5cb85c; */
+    background: #2DFE54;
 }
 
 .btn-start:hover {
@@ -36,7 +37,8 @@
 }
 
 .btn-pause {
-    background: #f0ad4e;
+    /* background: #f0ad4e; */
+    background: #FFFF7E;
 }
 
 .btn-pause:hover {
@@ -45,7 +47,8 @@
 }
 
 .btn-reset {
-    background: #d9534f;
+    /* background: #d9534f; */
+    background: #FD4659;
 }
 
 .btn-reset:hover {

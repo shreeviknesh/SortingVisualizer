@@ -12,6 +12,13 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function resetStates() {
+    for (let i = 0; i < stateArray.length; i++) {
+        stateArray[i] = 0;
+    }
+    await visualize();
+}
+
 function map(x, a, b, p, q) {
     let slope = (q - p) / (b - a);
     return p + slope * (x - a);
@@ -26,8 +33,13 @@ function noLoop() {
 
 function finishedSorting() {
     noLoop();
+    if (looping == false) {
+        sorted = false;
+    }
+    else {
+        sorted = true;
+    }
     looping = false;
-    sorted = true;
     stateArray.length = 0;
     visualize();
 }
@@ -150,6 +162,10 @@ async function setSortingFunction() {
         pauseBtn.classList.add("disabled");
         sortingFunction = quickSort;
     }
+    else if (sortingChoiceVal == "merge") {
+        pauseBtn.classList.add("disabled");
+        sortingFunction = mergeSort;
+    }
 }
 
 async function visualize() {
@@ -164,8 +180,8 @@ async function visualize() {
         else if (stateArray[i] == 2) {
             context.fillStyle = activeColor2;
         }
-        else if (stateArray[i] == 2) {
-            context.fillStyle = 'blue';
+        else if (stateArray[i] == 3) {
+            context.fillStyle = activeColor3;
         }
         else if (stateArray[i] == -1) {
             context.fillStyle = sortedColor;
@@ -180,6 +196,9 @@ async function visualize() {
 }
 
 function startButton() {
+    if (looping) {
+        return;
+    }
     looping = true;
     animate();
 }
