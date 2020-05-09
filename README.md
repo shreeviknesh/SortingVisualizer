@@ -20,6 +20,10 @@ Contents
 |[Binary Insertion Sort](#binary-insertion-sort)|<img src="https://img.shields.io/badge/-No-FF4136">|
 |[Quick Sort](#quick-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |[Merge Sort](#merge-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
+|Intro Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Gnome Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Bogo Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|Cocktail Shaker Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Radix Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
