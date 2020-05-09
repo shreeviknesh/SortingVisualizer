@@ -8,7 +8,6 @@ A web-application to visualize the various sorting algorithms made using vanilla
 - Control the Sorting Speed
 - Start/Pause/Reset the algorithm
 
-----
 Contents
 ----
 |Sorting Algorithm|Implemented?|
@@ -28,7 +27,6 @@ Contents
 |Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Radix Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 
-----
 Bubble Sort
 ----
 - Bubble sort is the simplest (and slowest) sorting algorithm.
@@ -69,7 +67,7 @@ end BubbleSort
 ```
 -->
 
-----
+
 Selection Sort
 ----
 - Selection sort splits the array into two: sorted partition and unsorted partition.
@@ -94,7 +92,7 @@ begin selectionSort(array):
 end selectionSort
 ```
 
-----
+
 Insertion Sort
 ----
 - Insertion sort is a simple sorting algorithm that works the way we sort playing cards.
@@ -120,7 +118,7 @@ end insertionSort
 - The algorithm can be optimized by using binary search to reduce the number of comparisons.
 - Thus the comparisons in n<sup>th</sup> iteration decreases from O(n<sup>2</sup>) to O(log n).
 
-----
+
 Quick Sort
 ----
 - Quick sort is a Divide and Conquer algorithm that picks an element as pivot and partitions the array around the pivot.
@@ -161,7 +159,6 @@ begin partition(array, low, high):
 end partition
 ```
 
-----
 Merge Sort
 ---- 
 - Merge sort is also a Divide and Conquer algorithm that divides the array into two halves and recursively calls merge sort on each half.
@@ -179,4 +176,17 @@ begin mergeSort(array):
   mergeSort(array[:mid])
   mergeSort(array[mid+1:])   
 end mergeSort
+```
+
+Bogo Sort
+----
+- Other names include: stupid sort, slow sort, shotgun sort, monkey sort, permutation sort.
+- It is a very ineffective sort strategy that with worst-case time complexity of O(\infty), average-case time complexity of O(n.n!) and best case time complexity of O(n).
+#### Pseudocode:
+```python
+begin bogoSort(array):
+  while !sorted(array):
+    shuffle(array)
+  end while
+end bogoSort
 ```
