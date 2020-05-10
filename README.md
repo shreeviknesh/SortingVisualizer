@@ -22,7 +22,7 @@ Contents
 |Intro Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Gnome Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |[Bogo Sort](#bogo-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
-|Cocktail Shaker Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
+|[Cocktail Shaker Sort](#cocktail-shaker-sort)|<img src="https://img.shields.io/badge/-Yes-2ECC40">|
 |Heap Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Counting Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
 |Radix Sort|<img src="https://img.shields.io/badge/-No-FF4136">|
@@ -189,4 +189,38 @@ begin bogoSort(array):
     shuffle(array)
   end while
 end bogoSort
+```
+
+Cocktail Shaker Sort
+----
+- It is a variation of the optimized bubble sort which moves bidirectionally. Also known as "Bidirectional Bubble Sort."
+- During each iteration, the algorithm moves the largest element to the end and smallest element to the beginning. Although it improves on bubble sort by quickly moving iterms to the beginning of the array, it provides only marginal performance improvements.
+- The worst-case time complexity is O(n<sup>2</sup>) and the best-case time complexity if O(n).
+#### Pseudocode:
+```python
+def cocktailSort(array): 
+  swapped = True
+  start, end = 0, n - 1
+  while swapped:
+    swapped = False
+    for i in [start, end]: 
+      if array[i] > array[i+1]: 
+        swap(array[i], array[i+1])
+        swapped = True
+      end if
+    end for
+    end--
+    if not swapped
+      break
+    end if
+    swapped = False
+    for i in (end, start]: 
+      if array[i] > array[i+1]:
+        swap(array[i], array[i+1])
+        swapped = True
+      end if
+    end for 
+    start++
+  end while
+end cocktailSort
 ```
