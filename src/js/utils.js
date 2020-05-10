@@ -171,6 +171,14 @@ async function setSortingFunction() {
         sortingFunction = bogoSort;
         seizureButton.style.display = 'inline';
     }
+    else if (sortingChoiceVal == "cocktail") {
+        sortingFunction = cocktailSort;
+        swaps = 0;
+        starting = true;
+        start = 0;
+        end = n - 1;
+        cocktailFirst = true;
+    }
 }
 
 async function visualize() {

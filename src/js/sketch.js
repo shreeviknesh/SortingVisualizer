@@ -21,21 +21,20 @@ const pauseBtn = document.getElementById('pauseSorting');
 const speedRan = document.getElementById('speedRange');
 
 let valueArray = [];
+let stateArray = [];
 // array State lookup:
 //  1 - active1
 //  2 - active2
 // -1 - sorted
 //  0 - nothing
-let stateArray = [];
 
-let swaps = 0;
+let i, j, value, swaps, start, end;
+
 let looping = false;
 let sorted = true;
 let seizure = false;
-// let recursing = false;
 
 let sortingFunction;
-
 let loopID;
 
 async function initialize() {
@@ -43,10 +42,7 @@ async function initialize() {
     await getScale();
     await setSize();
 
-    looping = false;
-    sorted = false;
-    seizure = false;
-    swaps = 0;
+    looping = sorted = false;
 
     await initializeArray();
     await setSortingFunction();
@@ -59,12 +55,16 @@ async function animate() {
         return;
     }
     looping = true;
+
+    // Recursive sorting algorithms
     if ((sortingFunction == quickSort || sortingFunction == mergeSort) && !sorted) {
         if (sortingFunction == mergeSort) {
             speedRan.disabled = true;
         }
         loopID = setInterval(visualize, 1000 / fps);
         await sortingFunction(0, valueArray.length - 1);
+
+        // Sort was interrupted before finishing
         if (looping == false) {
             await sleep(250);
             finishedSorting();
@@ -72,8 +72,10 @@ async function animate() {
         else {
             finishedSorting();
         }
+
         speedRan.disabled = false;
     }
+    // Iterative sorting algorithms
     else {
         noLoop();
         loopID = setInterval(sortingFunction, 1000 / fps);
